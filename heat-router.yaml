@@ -1,0 +1,15 @@
+
+{
+  "AWSTemplateFormatVersion" : "2010-09-09",
+  "Description" : "Sample Heat template that Create a Router",
+  "Resources" : {
+ 
+    "heat-demo-router" : {
+      "Type" : "OS::Neutron::Router",
+      "Properties" : {
+        "admin_state_up" : "True",
+        "name" : "heat-demo-router"
+      }
+    }
+  }
+}
