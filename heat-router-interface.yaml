@@ -1,0 +1,56 @@
+# Live Demo http://goo.gl/AVnXXz
+{
+  "AWSTemplateFormatVersion" : "2010-09-09",
+  "Description" : "Sample Heat template that Create a Network & Router Router",
+  "Resources" : {
+
+    "network_01" : {
+      "Type" : "OS::Neutron::Net",
+      "Properties" : {
+        "name" : "network-01"
+      }
+    },
+ 
+    "subnet_01" : {
+      "Type" : "OS::Neutron::Subnet",
+      "Properties" : {
+        "name" : "subnet-01",
+        "cidr" : "10.10.10.0/24",
+        "dns_nameservers" : ["8.8.8.8", "8.8.4.4"],
+        "enable_dhcp" : "True",
+        "gateway_ip" : "10.10.10.254",
+        "network_id" : { "Ref" : "network_01" }
+      }
+    },
+ 
+    "router_01" : {
+      "Type" : "OS::Neutron::Router",
+      "Properties" : {
+        "admin_state_up" : "True",
+        "name" : "router_01"
+      }
+    },
+    "heat_router_int0" : {
+      "Type" : "OS::Neutron::RouterInterface",
+      "Properties" : {
+        "router_id" : { "Ref" : "router_01" },
+        "subnet_id" : { "Ref" : "subnet_01" }
+      }
+    },
+    "instance0_port0" : {
+      "Type" : "OS::Neutron::Port",
+      "Properties" : {
+        "admin_state_up" : "True",
+        "network_id" : { "Ref" : "network_01" }
+      }
+    },
+ 
+    "instance1_port0" : {
+      "Type" : "OS::Neutron::Port",
+      "Properties" : {
+        "admin_state_up" : "True",
+        "network_id" : { "Ref" : "network_01" }
+      }
+    }
+  }
+}
