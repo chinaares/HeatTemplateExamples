@@ -1,0 +1,14 @@
+# Live Demo @ http://goo.gl/V5TYus
+{
+  "AWSTemplateFormatVersion" : "2010-09-09",
+  "Description" : "Heat template to create a  Gateway",
+  "Resources" : {
+    "RouterGateWay" : {
+      "Type" : "OS::Neutron::RouterGateway",
+      "Properties" : {
+        "network_id" : "1c923610-b7e9-465b-b6c9-f9e9ad4d5d0a",
+        "router_id" : "c8c97815-0693-4c21-9f6c-c7362dcc6c06"
+      }
+    }
+}
+}
