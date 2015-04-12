@@ -1,0 +1,10 @@
+# Sample YAML file to create the KeyPair openstack HOT example
+# Live demo http://goo.gl/OBTg9u
+HeatTemplateFormatVersion: '2012-12-12'
+Resources:
+  TheResource:
+    Type: OS::Nova::KeyPair
+    Properties:
+      name: "mykey"
+      public_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC+NJ5PAfPAq/PEu6IOUUAce+xhCuwglMPrWG5Z4jcTflMHMT2W0mkLV6td7nmL9qoJ2y7lDepRd7TyECuEWd9COE+JEgE4c7KpLjev5v9NH2fTcRhP1+/rCSDitY5zKfCxRk4rVh4gqTyqEb8CRvXR9XtvVndLqI5H4cBRFuq0sg/ABblhaRUfPa2MVyKuIdmtksV/ZkJ+bd+xJYmWLz/liTYiqx61wjD8kCUQT/RbY/ANojvjlrQ/Fvx6+B3OTTGHweI7r4cf8gj71ggr8dFyntpQgq/XX2pZCErjOGN52MLjaBu30jQAaYLiG2Vg/dy54bfhPKU+9Q7lYIItOe3J zarigatongy@zarigaP0K3"
+      save_private_key: True
